@@ -1,9 +1,11 @@
 import React from "react";
-
+import Header from "./components/Header";
+import { Main } from "./components/Main";
 export default function App(){
     return (
-        <h1 className="text-3xl font-bold underline">
-            hello
-        </h1>
+        <div>
+            <Header/>
+            <Main/>
+        </div>
     )
 }
