@@ -1,8 +1,16 @@
 import React from "react";
 
-export default function Scoreboard() {
+const Scoreboard = ({score,record}) => {
+
+
     return (
-        <div>Hello</div>
+        <div>
+            <h1>{score}</h1>
+            <h1>{record}</h1>
+        </div>
     )
 }
+
+
+export {Scoreboard}
 
