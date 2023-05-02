@@ -1,14 +1,11 @@
 import React, {useState, useEffect} from "react";
+import { Card } from "./Card";
 
-
-const Cardcontainer = ({ pokemon }) => {
+const Cardcontainer = ({ pokemon, playRound }) => {
     return (
-        <div className="flex">
+        <div className="flex flex-wrap">
             {pokemon.map((p) => (
-                <div key={p.name}>
-                    <img src={p.imageUrl} alt={p.name}></img>
-                    <p>{p.name}</p>
-                </div>
+                 <Card key={p.name} name={p.name} imageUrl={p.imageUrl} playRound={playRound}/>
             ))}
         </div>
     )

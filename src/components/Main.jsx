@@ -37,7 +37,7 @@ const Main = () => {
     return (
         <div>
             <Scoreboard score={score} record={record}/>
-            <Cardcontainer pokemon={pokemon}/>
+            <Cardcontainer pokemon={pokemon} playRound={handleClick}/>
 
 
 
