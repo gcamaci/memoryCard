@@ -3,8 +3,9 @@ import React from "react";
 
 const Card = ({ name, imageUrl, playRound }) => {
    return (
-    <div className="card w-1/4 shadow-xl" onClick={playRound}>
-        <img src={imageUrl} alt={name}></img>
+    //Assumming always unique. Set id instead of using card key for usedCards? 
+    <div className="card w-1/4 shadow-xl" onClick={playRound} id={name}>
+        <img src={imageUrl} alt={name} style={{ pointerEvents: 'none' }}></img>
         <p>{name}</p>
     </div>
    )

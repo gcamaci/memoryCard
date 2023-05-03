@@ -6,6 +6,8 @@ const Main = () => {
     const [score, setScore] = useState(0)
     const [record, setRecord] = useState(0)
     const [pokemon,setPokemon] = useState([])
+    const [usedPokemon,setUsedPokemon] = useState([])
+
     //Everytime score changes this is run 
     useEffect(() => {
         if (score > record) {
@@ -26,21 +28,19 @@ const Main = () => {
                 };
             }));
             setPokemon(pokemonData);
-        }
+    }
         fetchPokemon();
     }, []);
 
-    const handleClick = () => {
+    const handleClick = (e) => {
         setScore(score + 1)
+        console.log(e.target.id)
         
     }
     return (
         <div>
             <Scoreboard score={score} record={record}/>
-            <Cardcontainer pokemon={pokemon} playRound={handleClick}/>
-
-
-
+            <Cardcontainer pokemon={pokemon} score={score} playRound={handleClick}/>
         </div>
     )
 }
