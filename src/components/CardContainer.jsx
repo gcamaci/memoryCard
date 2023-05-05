@@ -5,10 +5,22 @@ import { Card } from "./Card";
 // need to split the array into 4 parts for 4 different rounds
 const Cardcontainer = ({ pokemon, score, playRound }) => {
     const [displayPokemon, setDisplayPokemon] = useState([])
-    const [round, setRound] = useState(0)
+    const [cardSets, setCards] = useState([])
     useEffect(() => {
-        setDisplayPokemon(pokemon.slice(0,12))
-        
+        function splitRounds(){
+            const partSize = 12;
+            const result = [];
+
+            for (let i = 0; i < 4; i++) {
+                const start = i * partSize;
+                const end = start + partSize;
+                const part = pokemon.slice(start,end);
+                result.push(part)
+            }
+            setDisplayPokemon(result[0])
+            return result
+        }
+        setCards(splitRounds())
 
     }, [pokemon])
     
@@ -20,7 +32,7 @@ const Cardcontainer = ({ pokemon, score, playRound }) => {
             }
             setDisplayPokemon(pokemon.slice(0,12))
         }
-
+        
 
         shuffleCards()
     },[score])
