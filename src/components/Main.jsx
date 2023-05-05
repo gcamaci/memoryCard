@@ -9,6 +9,7 @@ const Main = () => {
     const [usedPokemon,setUsedPokemon] = useState([])
 
     //Everytime score changes this is run 
+    //might be able to move into scoreBoard
     useEffect(() => {
         if (score > record) {
           setRecord(score);
@@ -17,7 +18,7 @@ const Main = () => {
     
     useEffect(() => {
         async function fetchPokemon() {
-            const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=40');
+            const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=48');
             //data contains all pokemon, just name and URL
             const data = await response.json();
             //looping through those pokemon and fetching data from individual URLs
@@ -26,6 +27,7 @@ const Main = () => {
                 
                 const data = await response.json();
                 // DATA HOLDS EVERYTHING LOL!
+
                 
                 
                 return {
@@ -40,16 +42,20 @@ const Main = () => {
         fetchPokemon();
     }, []);
 
-    const handleClick = (e) => {
+    const playRound = (e) => {
+        const pokeID = e.currentTarget.id
         setScore(score + 1)
-        console.log(e.target.key)
-        
+        setUsedPokemon((usedPokemon) => {
+            const updatedUsedPokemon = [...usedPokemon, pokeID]
+            console.log(updatedUsedPokemon)
+            return updatedUsedPokemon
+        })
     }
     
     return (
         <div>
             <Scoreboard score={score} record={record}/>
-            <Cardcontainer pokemon={pokemon} score={score} playRound={handleClick}/>
+            <Cardcontainer pokemon={pokemon} score={score} playRound={playRound}/>
         </div>
     )
 }
