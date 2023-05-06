@@ -1,18 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { Cardcontainer } from "./CardContainer";
 import { Scoreboard } from "./Scoreboard";
+import splitRounds from "../utils/splitRounds";
 const Main = () => {
 
     const [score, setScore] = useState(0)
     const [record, setRecord] = useState(0)
     const [pokemon,setPokemon] = useState([])
     const [usedPokemon,setUsedPokemon] = useState([])
-
+    const [round, setRound] = useState(0)
     //Everytime score changes this is run 
     //might be able to move into scoreBoard
+    
+
     useEffect(() => {
         if (score > record) {
           setRecord(score);
+        }
+        if(score % 12 === 0) {
+            const currentRound = parseInt(score.toString().split('')[0]);
+            setRound(currentRound)
         }
     }, [score, record]);
     
@@ -36,11 +43,13 @@ const Main = () => {
                     imageUrl: data.sprites.front_default
                 };
             }));
-
-        setPokemon(pokemonData);
+        const cardSets = splitRounds(pokemonData)
+        setPokemon(cardSets);
     }
         fetchPokemon();
     }, []);
+
+    
 
     const playRound = (e) => {
         const pokeID = e.currentTarget.id
@@ -55,7 +64,11 @@ const Main = () => {
     return (
         <div>
             <Scoreboard score={score} record={record}/>
-            <Cardcontainer pokemon={pokemon} score={score} playRound={playRound}/>
+            <Cardcontainer 
+                pokemon={pokemon} 
+                score={score} 
+                round={round} 
+                playRound={playRound}/>
         </div>
     )
 }
