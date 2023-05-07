@@ -5,7 +5,14 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'poke': ['poke', 'system-ui', 'sans-serif'],
+      },
+      textColor: {
+        'primary': '#ffcb05'
+      },
+    },
   },
   plugins: [],
 }
