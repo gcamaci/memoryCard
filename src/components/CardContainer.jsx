@@ -16,7 +16,7 @@ const Cardcontainer = ({ pokemon, score, round, playRound }) => {
     },[pokemon,score,round])
 
     return (
-        <div className="flex flex-wrap">
+        <div className="grid grid-cols-4 gap-5 p-10">
             {displayPokemon.map((p) => (
                 //can i just attatch onClick=playRound instead of passing as prop?
                  <Card 

@@ -20,6 +20,12 @@ module.exports = {
 
 
       },
+      borderColor: {
+        'pokeYellow':'#FFCC00',
+        'pokeBlue':'#0A285F',
+        'pokeLiteBlue':'#0075BE'
+      }
+      
     },
   },
   plugins: [],

@@ -30,6 +30,7 @@ const Main = () => {
             const pokemonData = await Promise.all(data.results.map(async (p) => {
                 const response = await fetch(p.url);
                 const data = await response.json();
+                console.log(data)
                 
                 return {
                     id:data.id,
@@ -60,7 +61,7 @@ const Main = () => {
     }
     
     return (
-        <div>
+        <div className="bg-pokeWhite">
             <Scoreboard score={score} record={record}/>
             <Cardcontainer 
                 pokemon={pokemon} 

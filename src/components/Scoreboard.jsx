@@ -7,9 +7,9 @@ import React from "react";
 
 const Scoreboard = ({score,record}) => {
     return (
-        <div className="w-full border flex justify-center p-4">
-            <div className="w-64 border bg-pokeLiteBlue p-1.5 rounded-md">
-                <div className="bg-pokeYellow flex rounded-md">
+        <div className="w-full flex justify-center p-4">
+            <div className="w-64 bg-pokeLiteBlue p-1.5 rounded-md shadow shadow-black">
+                <div className="bg-pokeYellow flex rounded-md shadow-inner">
                     <div className="grow flex flex-col items-center">
                         <p>Score</p>
                         <p>{score}</p>
