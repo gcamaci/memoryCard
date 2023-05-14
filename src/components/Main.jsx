@@ -20,7 +20,7 @@ const Main = () => {
             setRound(currentRound)
         }
     }, [score, record]);
-    
+
     useEffect(() => {
         async function fetchPokemon() {
             const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=48');
@@ -43,12 +43,10 @@ const Main = () => {
         fetchPokemon();
     }, []);
 
-    
 
     const playRound = (e) => {
         const pokeID = e.currentTarget.id
         setScore(score + 1)
-
         if (usedPokemon.includes(pokeID)) {
             setScore(0)
             setUsedPokemon([])

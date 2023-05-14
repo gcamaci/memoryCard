@@ -9,8 +9,16 @@ module.exports = {
       fontFamily: {
         'poke': ['poke', 'system-ui', 'sans-serif'],
       },
-      textColor: {
-        'primary': '#ffcb05'
+      backgroundColor: {
+        'primary': '#FB1B1B',
+        'pokeBlue':'#0A285F',
+        'pokeLiteBlue':'#0075BE',
+        'pokePrimeYellow':'#D5A100',
+        'pokeYellow':'#FFCC00',
+        'pokeGray':'#DFDFDF',
+        'pokeWhite':'#FFFFFF'
+
+
       },
     },
   },
